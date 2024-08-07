@@ -39,7 +39,13 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "src/assets/plugins/jquery-ui/jquery-ui.min.js",
+              "src/assets/plugins/bootstrap/js/bootstrap.bundle.min.js",
+              "src/assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js",
+              "src/assets/dist/js/adminlte.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -104,5 +110,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
