@@ -28,16 +28,18 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>183</td>
-                <td>John Doe</td>
-                <td>11-7-2014</td>
-                <td>
-                    <button class="btn btn-sm btn-outline-warning" (click)="editSchool({})" [disabled]="showSchoolForm">
-                        <i class="fas far fa-edit"></i>
-                    </button>
-                </td>
-              </tr>
+              <ng-container *ngFor="let school of schools$ | async">
+                <tr>
+                  <td>{{school.id}}</td>
+                  <td>{{school.name}}</td>
+                  <td>{{school.fulltime}}</td>
+                  <td>
+                      <button class="btn btn-sm btn-outline-warning" (click)="editSchool(school)" [disabled]="showSchoolForm">
+                          <i class="fas far fa-edit"></i>
+                      </button>
+                  </td>
+                </tr>
+              </ng-container>
             </tbody>
           </table>
         </div>
@@ -74,7 +76,7 @@
                   <!-- /.card-body -->
     
                   <div class="card-footer clearfix">
-                    <button type="submit" class="btn btn-outline-primary btn-sm">Guardar</button>
+                    <button type="submit" class="btn btn-outline-primary btn-sm" [disabled]="schoolForm.invalid" (click)="saveSchool()">Guardar</button>
                     <button class="btn btn-outline-default btn-sm float-right" (click)="cancelForm()" >Cancelar</button>
                   </div>
                 </form>
